@@ -2,7 +2,6 @@ Portfólio de Luiz Henrik
 
 Meu site pessoal, feito em uma página só, para me apresentar e mostrar meus projetos. Sou estudante do 2º período de Análise e Desenvolvimento de Sistemas e trabalho como jovem aprendiz.
 
-Site: [A PREENCHER: link do GitHub Pages]
 
 Objetivo
 
