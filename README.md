@@ -33,15 +33,12 @@ HTML e CSS
 JavaScript (só para o botão de copiar e-mail)
 Fontes do Google Fonts (Instrument Serif e Figtree)
 
-Não usa framework, API, banco de dados nem arquivo .env.
-
 Evidências
 
 Versão 2 do site:
 
 Site no computador Site no celular
 
-A PREENCHER: tire dois prints do site publicado (um no computador e um no celular) e salve na pasta docs com esses nomes.
 
 Histórico das versões:
 
