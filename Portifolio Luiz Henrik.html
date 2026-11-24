@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F8F4FB">
+<meta name="description" content="Portfólio de Luiz Henrik, estudante de Análise e Desenvolvimento de Sistemas e jovem aprendiz.">
+<title>Luiz Henrik — Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Cores ---------- */
+  :root {
+    --nevoa:    #F8F4FB;  /* fundo da página */
+    --lavanda:  #EFE4F5;  /* faixas e superfícies */
+    --glicinia: #DDC9EC;  /* linhas e detalhes */
+    --orquidea: #CDB0E3;  /* arco do meio */
+    --ametista: #C3A5DD;  /* destaque suave */
+    --violeta:  #7B5AA6;  /* links, botões, rótulos */
+    --violeta-escuro: #66468F;
+    --tinta:    #2E2238;  /* texto principal */
+    --suave:    #62556F;  /* texto secundário */
+
+    --titulo: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans:   "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --largura: 68rem;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--nevoa);
+    color: var(--tinta);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, p, dl, dd, ul { margin: 0; }
+
+  a { color: var(--violeta); }
+
+  :focus-visible {
+    outline: 3px solid var(--violeta);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--largura);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .pular {
+    position: absolute;
+    left: -999px;
+    top: 0.75rem;
+    background: var(--tinta);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+  }
+  .pular:focus { left: 0.75rem; }
+
+  /* ---------- Cabeçalho ---------- */
+  .topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.5rem;
+  }
+  .topo-marca {
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 5vw, 1.75rem);
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--tinta);
+    text-decoration: none;
+  }
+  .topo-nav { display: flex; gap: clamp(1rem, 3vw, 1.75rem); }
+  .topo-nav a {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--tinta);
+    text-decoration: none;
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+  }
+  .topo-nav a:hover { border-bottom-color: var(--ametista); }
+
+  /* ---------- Início ---------- */
+  .inicio {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+    align-items: end;
+    padding-block: clamp(2rem, 6vw, 4.5rem) clamp(3rem, 8vw, 6rem);
+  }
+  @media (min-width: 52rem) {
+    .inicio { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 4rem; }
+  }
+
+  .inicio h1 {
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-size: clamp(4.75rem, 16vw, 10rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  .inicio h1 span { display: block; }
+  .inicio h1 span + span { padding-left: 0.3em; }
+
+  .inicio-texto {
+    margin-top: 2rem;
+    max-width: 34ch;
+    font-size: clamp(1.15rem, 2.4vw, 1.3rem);
+    line-height: 1.55;
+  }
+
+  .acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 1.75rem;
+    margin-top: 2rem;
+  }
+
+  .botao {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--violeta);
+    color: #fff;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
+  }
+  .botao:hover { background: var(--violeta-escuro); }
+
+  .link-simples {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--tinta);
+    text-decoration-line: underline;
+    text-decoration-color: var(--ametista);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+  .link-simples:hover { text-decoration-color: var(--violeta); }
+
+  /* Três arcos que crescem da esquerda para a direita: o elemento de destaque da página. */
+  .arco {
+    position: relative;
+    width: min(100%, 19rem);
+    aspect-ratio: 10 / 9;
+    justify-self: center;
+  }
+  @media (min-width: 52rem) {
+    .arco { width: min(100%, 22rem); justify-self: end; }
+  }
+  .arco-camada {
+    position: absolute;
+    bottom: 0;
+    width: 31.5%;
+    border-radius: 999px 999px 0 0;
+    transform-origin: bottom;
+  }
+  .arco-1 { left: 0;      height: 50%;  background: var(--glicinia); }
+  .arco-2 { left: 34.25%; height: 74%;  background: var(--orquidea); }
+  .arco-3 { left: 68.5%;  height: 100%; background: var(--ametista); }
+
+  /* Para usar uma foto: troque o <div class="arco-monograma"> por
+     <img class="arco-foto" src="sua-foto.jpg" alt="Foto do Luiz"> */
+  .arco-monograma {
+    position: absolute;
+    left: 68.5%;
+    bottom: 0;
+    width: 31.5%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 9%;
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 1;
+    color: var(--tinta);
+  }
+  .arco-foto {
+    position: absolute;
+    left: 68.5%;
+    bottom: 0;
+    width: 31.5%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 999px 999px 0 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes abrir {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+    @keyframes aparecer {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .arco-camada {
+      animation: abrir 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+    .arco-2 { animation-delay: 0.15s; }
+    .arco-3 { animation-delay: 0.3s; }
+    .arco-monograma, .arco-foto {
+      animation: aparecer 0.6s ease-out 0.9s both;
+    }
+  }
+
+  /* ---------- Seções ---------- */
+  .secao {
+    padding-block: clamp(3rem, 7vw, 5.5rem);
+    scroll-margin-top: 1rem;
+  }
+  .faixa { background: var(--lavanda); }
+
+  .secao h2 {
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .secao-cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    margin-bottom: 2.25rem;
+  }
+  .nota {
+    font-size: 0.95rem;
+    color: var(--suave);
+  }
+
+  /* Agora */
+  .agora {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2.25rem 2.5rem;
+    list-style: none;
+    padding: 0;
+  }
+  .agora li {
+    padding-top: 1.1rem;
+    border-top: 3px solid var(--ametista);
+  }
+  .agora h3 {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--violeta);
+  }
+
+  /* Sobre */
+  .sobre {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  @media (min-width: 52rem) {
+    .sobre { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 4.5rem; }
+  }
+  .sobre-texto h2 { margin-bottom: 1.5rem; }
+  .sobre-texto p { max-width: 38rem; }
+  .sobre-texto p + p { margin-top: 1.1rem; }
+
+  .habilidades { align-self: end; }
+  .habilidades div {
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--ametista);
+  }
+  .habilidades div:first-child { border-top: 1px solid var(--ametista); }
+  .habilidades dt {
+    margin-bottom: 0.15rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--violeta);
+  }
+
+  /* Projetos */
+  .projeto {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 52rem) {
+    .projeto { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; }
+  }
+  .projeto-visual {
+    background: var(--lavanda);
+    border-radius: 1.5rem;
+    padding: clamp(1rem, 3vw, 1.75rem);
+  }
+  .projeto-visual svg { display: block; width: 100%; height: auto; }
+
+  .projeto h3 {
+    margin-bottom: 0.75rem;
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.1;
+  }
+  .projeto p { max-width: 34rem; }
+  .projeto .link-simples { display: inline-block; margin-top: 1.25rem; }
+
+  .proximo {
+    margin-top: 2.5rem;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    border: 2px dashed var(--ametista);
+    border-radius: 1.5rem;
+    color: var(--suave);
+  }
+  .proximo h3 {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--tinta);
+  }
+
+  /* Contato */
+  .contato h2 { margin-bottom: 1rem; }
+  .contato-texto { max-width: 36rem; }
+
+  .contato-email {
+    display: inline-block;
+    margin-top: 1.75rem;
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 5.5vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--tinta);
+    text-decoration-line: underline;
+    text-decoration-color: var(--ametista);
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
+    overflow-wrap: anywhere;
+  }
+  .contato-email:hover { text-decoration-color: var(--violeta); }
+
+  .contato-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin-top: 1.75rem;
+  }
+  .copiar-status {
+    font-size: 0.95rem;
+    color: var(--suave);
+  }
+
+  .rodape {
+    padding-block: 1.75rem 2.5rem;
+    border-top: 1px solid var(--glicinia);
+    font-size: 0.95rem;
+    color: var(--suave);
+  }
+  .rodape .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+  }
+  .rodape a { color: var(--suave); }
+</style>
+</head>
+<body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="wrap topo">
+  <a class="topo-marca" href="#inicio">Luiz Henrik</a>
+  <nav class="topo-nav" aria-label="Principal">
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+  <!-- Início -->
+  <section class="wrap inicio" id="inicio">
+    <div>
+      <h1><span>Luiz</span> <span>Henrik</span></h1>
+      <p class="inicio-texto">
+        Estudante de Análise e Desenvolvimento de Sistemas e jovem aprendiz, começando a construir meus primeiros projetos para a web.
+      </p>
+      <div class="acoes">
+        <a class="botao" href="#projetos">Ver projetos</a>
+        <a class="link-simples" href="#contato">Falar comigo</a>
+      </div>
+    </div>
+
+    <div class="arco" aria-hidden="true">
+      <div class="arco-camada arco-1"></div>
+      <div class="arco-camada arco-2"></div>
+      <div class="arco-camada arco-3"></div>
+      <div class="arco-monograma">LH</div>
+    </div>
+  </section>
+
+  <!-- Agora -->
+  <section class="secao" id="agora" aria-labelledby="agora-titulo">
+    <div class="wrap">
+      <div class="secao-cabecalho">
+        <h2 id="agora-titulo">Agora</h2>
+        <p class="nota">Atualizado em novembro de 2026</p>
+      </div>
+      <ul class="agora">
+        <li>
+          <h3>Estudando</h3>
+          <p>Análise e Desenvolvimento de Sistemas, no 2º período.</p>
+        </li>
+        <li>
+          <h3>Trabalhando</h3>
+          <p>Como jovem aprendiz, para ganhar experiência e entender como o trabalho funciona na prática.</p>
+        </li>
+        <li>
+          <h3>Construindo</h3>
+          <p>Meus primeiros projetos. Este portfólio é um deles.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section class="secao faixa" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="wrap sobre">
+      <div class="sobre-texto">
+        <h2 id="sobre-titulo">Sobre mim</h2>
+        <p>Oi, eu sou o Luiz. Estou no 2º período de Análise e Desenvolvimento de Sistemas e trabalho como jovem aprendiz, onde estou aprendendo como funciona uma empresa na prática.</p>
+        <p>Tenho poucos projetos até agora, e prefiro mostrar só o que eu realmente fiz. Quero crescer na área de tecnologia e estou construindo minha experiência aos poucos.</p>
+      </div>
+
+      <!-- EDITE: troque os itens abaixo pelo que é verdade para você -->
+      <dl class="habilidades">
+        <div>
+          <dt>Já uso</dt>
+          <dd>HTML, CSS e JavaScript.</dd>
+        </div>
+        <div>
+          <dt>Na faculdade</dt>
+          <dd>Lógica de programação e desenvolvimento de sistemas.</dd>
+        </div>
+        <div>
+          <dt>No trabalho</dt>
+          <dd>Organização, responsabilidade e trabalho em equipe.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section class="secao" id="projetos" aria-labelledby="projetos-titulo">
+    <div class="wrap">
+      <div class="secao-cabecalho">
+        <h2 id="projetos-titulo">Projetos</h2>
+      </div>
+
+      <!-- Para adicionar um projeto: copie o bloco <article class="projeto"> inteiro,
+           cole logo abaixo dele e troque título, texto e link. -->
+      <article class="projeto">
+        <div class="projeto-visual">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Miniatura da página inicial deste portfólio">
+            <rect x="30" y="30" width="340" height="240" rx="14" fill="#F8F4FB"/>
+            <rect x="52" y="52" width="46" height="7" rx="3.5" fill="#2E2238"/>
+            <rect x="268" y="52" width="22" height="5" rx="2.5" fill="#DDC9EC"/>
+            <rect x="300" y="52" width="22" height="5" rx="2.5" fill="#DDC9EC"/>
+            <rect x="52" y="104" width="110" height="26" rx="5" fill="#2E2238"/>
+            <rect x="68" y="138" width="140" height="26" rx="5" fill="#2E2238"/>
+            <rect x="52" y="182" width="130" height="6" rx="3" fill="#DDC9EC"/>
+            <rect x="52" y="196" width="100" height="6" rx="3" fill="#DDC9EC"/>
+            <rect x="52" y="222" width="64" height="20" rx="10" fill="#7B5AA6"/>
+            <path d="M262 270 V223 A13 13 0 0 1 288 223 V270 Z" fill="#DDC9EC"/>
+            <path d="M294 270 V193 A13 13 0 0 1 320 193 V270 Z" fill="#CDB0E3"/>
+            <path d="M326 270 V158 A13 13 0 0 1 352 158 V270 Z" fill="#C3A5DD"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Este portfólio</h3>
+          <p>Meu site pessoal, feito com HTML, CSS e JavaScript puro, sem framework. É onde reúno o que estou aprendendo e o que já fiz.</p>
+          <!-- EDITE: coloque aqui o link do código no GitHub, se quiser -->
+        </div>
+      </article>
+
+      <div class="proximo">
+        <h3>O próximo projeto fica aqui</h3>
+        <p>Quando um projeto novo ficar pronto, ele entra nesta lista.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="secao faixa contato" id="contato" aria-labelledby="contato-titulo">
+    <div class="wrap">
+      <h2 id="contato-titulo">Quer conversar?</h2>
+      <p class="contato-texto">Se for sobre uma vaga, um projeto ou só para trocar ideia sobre tecnologia, pode me chamar.</p>
+
+      <!-- Para trocar o e-mail, mude os três lugares: href, texto do link e data-email do botão -->
+      <a class="contato-email" id="email" href="mailto:Luizhenrikmc@hotmail.com">Luizhenrikmc@hotmail.com</a>
+
+      <div class="contato-acoes">
+        <button class="botao" type="button" id="copiar" data-email="Luizhenrikmc@hotmail.com">Copiar e-mail</button>
+        <a class="link-simples" href="https://www.linkedin.com/in/luiz-henrike/">LinkedIn</a>
+        <a class="link-simples" href="https://github.com/luizhenrikMC">GitHub</a>
+        <span class="copiar-status" id="copiar-status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p>Luiz Henrik, 2026. Feito com HTML, CSS e JavaScript.</p>
+    <a href="#inicio">Voltar ao topo</a>
+  </div>
+</footer>
+
+<script>
+  // Botão "Copiar e-mail"
+  (function () {
+    var botao = document.getElementById('copiar');
+    var status = document.getElementById('copiar-status');
+    var link = document.getElementById('email');
+    if (!botao) return;
+
+    function selecionarTexto() {
+      var faixa = document.createRange();
+      faixa.selectNodeContents(link);
+      var selecao = window.getSelection();
+      selecao.removeAllRanges();
+      selecao.addRange(faixa);
+    }
+
+    botao.addEventListener('click', function () {
+      var email = botao.getAttribute('data-email');
+      try {
+        navigator.clipboard.writeText(email).then(function () {
+          status.textContent = 'E-mail copiado.';
+        }, function () {
+          selecionarTexto();
+          status.textContent = 'Não consegui copiar. O e-mail está selecionado, é só copiar.';
+        });
+      } catch (erro) {
+        selecionarTexto();
+        status.textContent = 'Não consegui copiar. O e-mail está selecionado, é só copiar.';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
